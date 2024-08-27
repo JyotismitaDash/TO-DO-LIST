@@ -1,0 +1,10 @@
+<!doctype html>
+{% extends 'testapp/base.html' %}
+{% block body_block %}
+<form action="" method="post" style="text-align: center; font-size: larger; ">
+    <h2>Welcome To TO-DO LIST - Add a Task</h2><br>
+    {{form.as_p}}
+{% csrf_token %}
+<input type="submit"class="btn btn-success btn-lg" name="" value="Update Task">
+</form>
+{% endblock %}
