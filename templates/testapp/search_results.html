@@ -1,0 +1,32 @@
+<!doctype html>
+{% extends 'testapp/base.html' %}
+{% block body_block %}
+<div class="container my-3">
+  <h2 class="text-center">Here is the lists of your task</h2>
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Task Title</th>
+      <th scope="col">Task Description</th>
+      <th scope="col">Time</th>
+      
+      
+    </tr>
+  </thead>
+  <tbody>
+    {% for task in task_list %}
+    <tr>
+      <th scope="row">{{forloop.counter}}</th>
+      <th>{{task.tasktitle}}</th>
+      <th>{{task.testdesc}}</th>
+      <th>{{task.time}}</th>
+      
+    </tr>
+    {% endfor %}
+    
+  </tbody>
+</table>
+
+
+{% endblock %}

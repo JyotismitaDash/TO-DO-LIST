@@ -31,4 +31,10 @@ def update_view(request,id):
             form.save()
         return redirect('/abt')
     return render(request,'testapp/update.html',{'form':form})
- 
+
+def search_tasks(request):
+    
+    query=request.GET['query']
+    all_task= Task.objects.filter(tasktitle__icontains=query)
+    task={'task_list':all_task}
+    return render(request,'testapp/search_results.html',task)
