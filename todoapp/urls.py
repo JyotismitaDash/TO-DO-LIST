@@ -22,7 +22,10 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.homeview),
     path('abt/', views.aboutview,name='abt'),
-     path('delete/<int:id>', views.delete_view),
-     path('update/<int:id>', views.update_view),
+     path('delete/<int:id>', views.delete_view,name='delete'),
+     path('update/<int:id>', views.update_view, name='update',),
     path('search', views.search_tasks, name='search_tasks'),
+    path('recycle',views.recycle,name="recyle"),
+   # path('restore/<int:id>',views.restore,name='restore')
+   path('restore/<int:id>', views.restore, name='restore')
 ]
