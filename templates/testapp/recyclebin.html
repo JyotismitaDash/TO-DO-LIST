@@ -2,7 +2,16 @@
 {% extends 'testapp/base.html' %}
 {% block body_block %}
 <div class="container my-3">
-  <h2 class="text-center">Here is the lists of your task</h2>
+  <h2 class="text-center">Here is the lists of your deleted task</h2>
+  {% for message in messages %}
+<div class="alert alert-{{message.tags}} alert-dismissible fade show" role="alert">
+  <strong>{{message}}</strong>
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+{% endfor %}
+
 <table class="table">
   <thead class="thead-dark">
     <tr>
@@ -21,7 +30,10 @@
       <th>{{task.tasktitle}}</th>
       <th>{{task.testdesc}}</th>
       <th>{{task.time}}</th>
-      <td><a href="{% url 'restore' id=task.id %}"><button type="button" class="btn btn-primary" style="--bs--btn-padding-y: .25rem,--bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"><i class="fa-sharp fa-solid fa-pencil text-black-50"></i>Restore </button></a>
+      <td><a href="{% url 'restore' id=task.id %}"><button type="button" class="btn btn-primary" style="--bs--btn-padding-y: .25rem,--bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"><i class="fa-sharp fa-solid fa-pencil text-black-50"></i>Restore </button></a>&nbsp&nbsp&nbsp
+      <a href="{% url 'deletePermanently' id=task.id %}"><button type="button" class="btn btn-primary" style="--bs--btn-padding-y: .25rem,--bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"><i class="fa-solid fa-trash"></i>deletePermanently </button></a>
+      
+        </td>
       
     </tr>
     {% endfor %}

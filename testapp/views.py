@@ -1,7 +1,7 @@
 from django.shortcuts import render,redirect
 from testapp.models import Task
 from testapp.forms import TaskForm
-
+from django.contrib import messages
 # Create your views here.
 def homeview(request):
     form = TaskForm()
@@ -56,4 +56,11 @@ def restore(request,id):
     task=Task.objects.get(id=id)
     task.deleted=False
     task.save()
+    messages.success(request,"Tak is restored successfully")
     return redirect('/abt')
+
+def deletePermanently(request,id):
+    task=Task.objects.get(id=id)
+    task.delete()
+    messages.warning(request,'task is Permanently deleted')
+    return redirect('/recycle')

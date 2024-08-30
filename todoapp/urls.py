@@ -26,6 +26,6 @@ urlpatterns = [
      path('update/<int:id>', views.update_view, name='update',),
     path('search', views.search_tasks, name='search_tasks'),
     path('recycle',views.recycle,name="recyle"),
-   # path('restore/<int:id>',views.restore,name='restore')
-   path('restore/<int:id>', views.restore, name='restore')
+   path('restore/<int:id>', views.restore, name='restore'),
+   path('deletePermanently/<int:id>',views.deletePermanently,name="deletePermanently")
 ]
