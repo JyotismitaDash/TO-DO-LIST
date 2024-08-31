@@ -19,7 +19,7 @@
     <tr>
       <th scope="row">{{forloop.counter}}</th>
       <th>{{task.tasktitle}}</th>
-      <th>{{task.testdesc}}</th>
+      <th>{{task.teskdesc}}</th>
       <th>{{task.time}}</th>
       <td><a href="{% url 'update' id=task.id %}"><button type="button" class="btn btn-primary" style="--bs--btn-padding-y: .25rem,--bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"><i class="fa-sharp fa-solid fa-pencil text-black-50"></i> Update</button></a>&nbsp&nbsp&nbsp
         <a href="{% url 'delete' id=task.id %}"><button type="button" class="btn btn-danger" style="--bs--btn-padding-y: .25rem,--bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"><i class="fa-solid fa-delete-left"></i> Delete</button></a></td>
